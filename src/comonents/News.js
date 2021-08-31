@@ -89,19 +89,20 @@ export class news extends Component {
     }
 
     render() {
+        console.log('test',this.state.articles)
         return (
             <div className = "container">
 
                 <h1 className="text-center" style={{margin:'40px  0'}}>All India News-Top Headline</h1>
                 {this.state.loading && <Spinner/>}
                 <div className = "row">
-                {!this.state.loading && this.state.articles.map((element)=>{
-                    return  <div className ="col-md-4" key ={element.url}>
+                {!this.state.loading && this.state.articles ? this.state.articles.map((element)=>{
+                    return (<div className ="col-md-4" key ={element.url}>
                     <Newsitem  tilte= {element.title?element.title:""} descriptiono ={element.description?element.description:""} 
                     imageUrl ={element.urlToImage}  newsURL= {element.url?element.url:""} author={element.author} date={element.publishedAt} 
                      source ={element.source.name} />
-                    </div> 
-                })}      
+                    </div>) 
+                }) : <p>No article</p>}      
                 </div>
                 <div className="container d-flex justify-content-between">
                 <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick ={this.hendalenprevClick}  >&larr;previous</button>
