@@ -47,7 +47,7 @@ export class news extends Component {
         let data =await fetch(url);
         let ParsedData =await data.json()
         this.setState({
-            articles:ParsedData.articles,
+            articles: ParsedData.articles,
             totalResults:ParsedData.totalResults,
             loading:false
         })
@@ -79,8 +79,8 @@ export class news extends Component {
         let ParsedData =await data.json()
 
         this.setState({
-            page:this.state.page+1,
             articles:ParsedData.articles,
+            page:this.state.page+1,
             loading:false
         })
     }
