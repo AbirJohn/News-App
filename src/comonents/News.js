@@ -89,7 +89,7 @@ export class news extends Component {
     }
 
     render() {
-        console.log('test',process.env.REACT_APP_NEWS_API_KEY)
+        console.log('test', this.state.articles)
         return (
             <div className = "container">
 
