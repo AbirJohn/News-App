@@ -30,7 +30,7 @@ export class news extends Component {
 
 
     async updateNews(){
-      const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cc8815bfd43146179bf8a895edf8536b&page=$
+      const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=$
       {this.state.page}&pagesize=${this.props.pagesize}`;
         let data =await fetch(url);
         let ParsedData =await data.json()
@@ -42,7 +42,7 @@ export class news extends Component {
     } 
 
     async componentDidMount(){
-        let  url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cc8815bfd43146179bf8a895edf8536b&page=1&pagesize=${this.props.pagesize}`;
+        let  url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=1&pagesize=${this.props.pagesize}`;
         this.setState({loading:true});
         let data =await fetch(url);
         let ParsedData =await data.json()
@@ -55,7 +55,7 @@ export class news extends Component {
 
     hendalenprevClick = async ()=>{
 
-        let  url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cc8815bfd43146179bf8a895edf8536b&page=${this.state.page-1}&pagesize=${this.props.pagesize}`;
+        let  url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${this.state.page-1}&pagesize=${this.props.pagesize}`;
         this.setState({loading:true});
         let data =await fetch(url);
         let ParsedData =await data.json()
@@ -73,7 +73,7 @@ export class news extends Component {
 
         if(!(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pagesize))){
     
-        let  url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page+1}&pagesize=${this.props.pagesize}`;
+        let  url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${this.state.page+1}&pagesize=${this.props.pagesize}`;
         this.setState({loading:true});
         let data =await fetch(url);
         let ParsedData =await data.json()
@@ -89,7 +89,7 @@ export class news extends Component {
     }
 
     render() {
-        console.log('test',this.state.articles)
+        console.log('test',process.env.REACT_APP_NEWS_API_KEY)
         return (
             <div className = "container">
 
